@@ -25,7 +25,7 @@ return new class extends Migration
             $table->bigInteger('size')->nullable(true);
             $table->json('data')->nullable(true);
             $table->timestamps();
-            $table->tinyInt('deleted')->nullable(false)->index()->default(0);
+            $table->softDeletes();
 
             $table->foreign('creator_id')->references('id')->on('tots_user');
             $table->foreign('parent_id')->references('id')->on('tots_finder');
